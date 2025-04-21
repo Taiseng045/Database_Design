@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Activity Logs{% endblock %}
+{% block content %}
+<div class="border" style="padding: 30px 20px 20px 20px;">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h2>Activity Logs</h2>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="w-100">
+            <table class="table" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User ID</th>
+                        <th>Action</th>
+                        <th>Detail</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log[0] }}</td> <!-- Name -->
+                        <td>{{ log[1] }}</td> <!-- logname -->
+                        <td>{{ log[2] }}</td> <!-- Role -->
+                        <td>{{ log[3] }}</td> <!-- Status -->
+                        <td>{{ log[4] }}</td> <!-- Created At -->
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td class="text-center" colspan="8">No data.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

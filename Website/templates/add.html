@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title %}User Registration{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-3">
+    <form action="{{ url_for('views.add_user') ,id= TheUser[0]}}" method="POST" >
+        <div class="border" style="padding: 30px 20px 20px 20px; width: 738px;">
+            <div class="d-flex  justify-content-center align-items-center">
+                <div class="">
+                    <h1>Registration Form</h1>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                <hr>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" name="UserFullName" class="form-control" id="fullName" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="UserEmail" class="form-label">Email</label>
+                            <input type="text" name="UserEmail" class="form-control" id="UserEmail" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="UserPassword" class="form-label">Password</label>
+                            <input type="password" name="UserPassword" class="form-control" id="UserPassword" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="UserPassword2" class="form-label">Confirmed Password</label>
+                            <input type="password" name="UserPassword2" class="form-control" id="UserPassword2" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 ">
+                            <label for="UserRole" class="form-label">Role</label>
+                            <select class="form-control" id="UserRole" name="UserRole" required>
+                                <option value="Admin">Admin</option>
+                                <option value="Director">Director</option>
+                                <option value="Officer">Officer</option>
+                                <option value="Guest">Guest</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="UserStatus" class="form-label">Status</label>
+                            <select class="form-control" id="UserStatus" name="UserStatus" required>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <button type="submit" class="btn w-100 btn-primary">Submit</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,29 @@
+.nav-icon-container{
+    margin-top: 65px;
+}
+.nav-icon{
+    padding: 0 0 0 30px;
+}
+.nav-icon:hover{
+    background-color: #2e8999;
+}
+.nav-icon:hover a{
+    color: white;
+    transition: 0.7s;
+}
+.setting-icon{
+    margin-left: 5px;
+}
+.setting-icon:hover{
+    transform: scale(1.1);
+    transition: 0.7s;
+    background-color: rgb(74, 68, 78);
+}
+.setting-icon:hover a{
+    color: white;
+}
+.active {
+    background-color: #2e8999;  /* Customize background color */
+    color: white;  /* Customize text color */
+}
+

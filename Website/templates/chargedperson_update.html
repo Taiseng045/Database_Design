@@ -1,0 +1,414 @@
+{% extends "base.html" %} {% block title %}Registration{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-3">
+    <form
+        action="{{ url_for('views.chargedperson_update',ChargedPersonId= TheChargedperson[0],ChargedPersonBAdd=ChargedPersonBAdd,ChargedPersonCAdd=ChargedPersonCAdd,ArrestAdd=ArrestAdd,TheCaseNumber=TheCaseNumber,formatted_time=formatted_time) }}"
+        method="POST">
+        <div class="border" style="padding: 30px 20px 20px 20px; width: 738px;">
+            <div class="d-flex  justify-content-center align-items-center">
+                <div class="">
+                    <h1>Registration Form</h1>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" value="{{TheChargedperson[2]}}" name="name" class="form-control"
+                            id="fullName" required>
+                    </div>
+                    <div class="col-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" name="gender" id="gender" required>
+                            <option value="{{TheChargedperson[3]}}">{{TheChargedperson[3]}}</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" value="{{TheChargedperson[4]}}" name="dob" id="dob"
+                            required>
+                    </div>
+
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="nationality" class="form-label">Nationality</label>
+                        <select class="form-select" name="nationality" id="nationality" required>
+                            <option value="{{TheChargedperson[5]}}">{{TheChargedperson[5]}}</option>
+                            <option value="Cambodian">Cambodian</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <option value="Thai">Thai</option>
+                            <option value="Laotian">Laotian</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="idNumber" class="form-label">National ID / Passport No.</label>
+                        <input type="text" class="form-control" value="{{TheChargedperson[1]}}" name="idNumber"
+                            id="idNumber" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="col-6">
+                        <label for="occupation" class="form-label">Occupation</label>
+                        <input type="text" class="form-control" value="{{TheChargedperson[6]}}" name="occupation"
+                            id="occupation" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="MaritalStatus" class="form-label">Marital Status</label>
+                        <select class="form-select" name="MaritalStatus" id="MaritalStatus" required>
+                            <option value="{{TheChargedperson[7]}}">{{TheChargedperson[7]}}</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="workplace" class="form-label">Workplace</label>
+                        <input type="text" name="workplace" value="{{TheChargedperson[8]}}" class="form-control"
+                            id="Workplace" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" name="email" value="{{TheChargedperson[9]}}" class="form-control" id="email"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------ Birth Address ----------------------------------->
+            <div class="form-section">
+                <h3>Address</h3>
+                <hr>
+                <h6>Birth Place</h6>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="birthPlaceCity" class="form-label">Province/City (Birth Place)</label>
+                        <select class="form-select" name="bCity" id="bCity" required>
+                            <option value="{{ChargedPersonBAdd[1]}}">{{ChargedPersonBAdd[1]}}</option>
+                            <option value="Banteay Meanchey">Banteay Meanchey</option>
+                            <option value="Battambang">Battambang</option>
+                            <option value="Kampong Cham">Kampong Cham</option>
+                            <option value="Kampong Chhnang">Kampong Chhnang</option>
+                            <option value="Kampong Speu">Kampong Speu</option>
+                            <option value="Kampong Thom">Kampong Thom</option>
+                            <option value="Kampot">Kampot</option>
+                            <option value="Kandal">Kandal</option>
+                            <option value="Kep">Kep</option>
+                            <option value="Koh Kong">Koh Kong</option>
+                            <option value="Kratie">Kratie</option>
+                            <option value="Mondul Kiri">Mondul Kiri</option>
+                            <option value="Oddar Meanchey">Oddar Meanchey</option>
+                            <option value="Pailin">Pailin</option>
+                            <option value="Phnom Penh">Phnom Penh</option>
+                            <option value="Preah Sihanouk">Preah Sihanouk</option>
+                            <option value="Preah Vihear">Preah Vihear</option>
+                            <option value="Prey Veng">Prey Veng</option>
+                            <option value="Pursat">Pursat</option>
+                            <option value="Ratanak Kiri">Ratanak Kiri</option>
+                            <option value="Siemreap">Siemreap</option>
+                            <option value="Stung Treng">Stung Treng</option>
+                            <option value="Svay Rieng">Svay Rieng</option>
+                            <option value="Takeo">Takeo</option>
+                            <option value="Tboung Khmum">Tboung Khmum</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="district" class="form-label">District/Khan</label>
+                        <input type="text" class="form-control" value="{{ChargedPersonBAdd[2]}}" name="bDistrict"
+                            id="bDistrict" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="commune" class="form-label">Commune/Sangkat</label>
+                        <input type="text" class="form-control" value="{{ChargedPersonBAdd[3]}}" name="bCommune"
+                            id="bCommune" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="village" class="form-label">Village</label>
+                        <input type="text" class="form-control" value="{{ChargedPersonBAdd[4]}}" name="bVillage"
+                            id="bVillage" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="streetAddress" class="form-label">Street Address</label>
+                        <input type="text" class="form-control" value="{{ChargedPersonBAdd[5]}}" name="bStreetAdd"
+                            id="bStreetAdd" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="birthPlaceCountry" class="form-label">Country (Birth Place)</label>
+                        <select class="form-select" name="bCountry" id="bCountry" required>
+                            <option value="{{ChargedPersonBAdd[7]}}">{{ChargedPersonBAdd[7]}}</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Thailand">Thailand</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="postalCode" class="form-label">Postal Code</label>
+                        <input type="text" class="form-control" value="{{ChargedPersonBAdd[6]}}" name="bPostal"
+                            id="bPostal">
+                    </div>
+                </div>
+                <!------------------------------ Current Address ----------------------------------->
+                <div id="currentAddressSection" class="mt-3">
+                    <h6>Current Address</h6>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="sameAsBirthPlace">
+                        <label class="form-check-label" for="sameAsBirthPlace">Same as Birth Place</label>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label for="currentCity" class="form-label">Province/City (Current Address)</label>
+                            <select class="form-select" name="cCity" id="currentCity" required>
+                                <option value="{{ChargedPersonCAdd[1]}}">{{ChargedPersonCAdd[1]}}</option>
+                                <option value="Banteay Meanchey">Banteay Meanchey</option>
+                                <option value="Battambang">Battambang</option>
+                                <option value="Kampong Cham">Kampong Cham</option>
+                                <option value="Kampong Chhnang">Kampong Chhnang</option>
+                                <option value="Kampong Speu">Kampong Speu</option>
+                                <option value="Kampong Thom">Kampong Thom</option>
+                                <option value="Kampot">Kampot</option>
+                                <option value="Kandal">Kandal</option>
+                                <option value="Kep">Kep</option>
+                                <option value="Koh Kong">Koh Kong</option>
+                                <option value="Kratie">Kratie</option>
+                                <option value="Mondul Kiri">Mondul Kiri</option>
+                                <option value="Oddar Meanchey">Oddar Meanchey</option>
+                                <option value="Pailin">Pailin</option>
+                                <option value="Phnom Penh">Phnom Penh</option>
+                                <option value="Preah Sihanouk">Preah Sihanouk</option>
+                                <option value="Preah Vihear">Preah Vihear</option>
+                                <option value="Prey Veng">Prey Veng</option>
+                                <option value="Pursat">Pursat</option>
+                                <option value="Ratanak Kiri">Ratanak Kiri</option>
+                                <option value="Siemreap">Siemreap</option>
+                                <option value="Stung Treng">Stung Treng</option>
+                                <option value="Svay Rieng">Svay Rieng</option>
+                                <option value="Takeo">Takeo</option>
+                                <option value="Tboung Khmum">Tboung Khmum</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="currentDistrict" class="form-label">District/Khan</label>
+                            <input type="text" class="form-control" value="{{ChargedPersonCAdd[2]}}" name="cDistrict"
+                                id="cDistrict" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label for="currentCommune" class="form-label">Commune/Sangkat</label>
+                            <input type="text" class="form-control" value="{{ChargedPersonCAdd[3]}}" name="cCommune"
+                                id="cCommune" required>
+                        </div>
+                        <div class="col-6">
+                            <label for="currentVillage" class="form-label">Village</label>
+                            <input type="text" class="form-control" value="{{ChargedPersonCAdd[4]}}" name="cVillage"
+                                id="cVillage" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label for="currentStreetAddress" class="form-label">Street Address</label>
+                            <input type="text" class="form-control" value="{{ChargedPersonCAdd[5]}}" name="cStreetAdd"
+                                id="cStreetAdd" required>
+                        </div>
+                        <div class="col-6">
+                            <label for="currentCountry" class="form-label">Country (Current Address)</label>
+                            <select class="form-select" name="cCountry" id="cCountry" required>
+                                <option value="{{ChargedPersonCAdd[7]}}">{{ChargedPersonCAdd[1]}}</option>
+                                <option value="Cambodia">Cambodia</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Thailand">Thailand</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label for="currentPostalCode" class="form-label">Postal Code</label>
+                            <input type="text" class="form-control" value="{{ChargedPersonCAdd[6]}}" name="cPostal"
+                                id="cPostal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Arrest & Case Details Section -->
+            <div class="form-section">
+                <h3>Arrest & Case Details</h3>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <label for="caseNumber" class="form-label">Case Number</label>
+                        <input type="text" class="form-control" value="{{TheCaseNumber[0]}}" name="caseNumber"
+                            id="caseNumber" required>
+                    </div>
+                    <div class="col-3">
+                        <label for="caseType" class="form-label">Case Type</label>
+                        <select class="form-select" name="caseType" id="caseType" required>
+                            <option value="{{TheCaseNumber[1]}}">{{TheCaseNumber[1]}}</option>
+                            <option value="Felony">Felony</option>
+                            <option value="Misdemeanor">Misdemeanor</option>
+                            <option value="Infraction">Infraction</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="caseStatus" class="form-label">Case Status</label>
+                        <select class="form-select" name="caseStatus" id="caseStatus" required>
+                            <option value="{{TheCaseNumber[2]}}">{{TheCaseNumber[2]}}</option>
+                            <option value="Guilty">Guilty</option>
+                            <option value="Innocent">Innocent</option>
+                            <option value="Under Investigation">Under Investigation</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="arrestDate" class="form-label">Arrest Date</label>
+                        <input type="date" class="form-control" value="{{TheCaseNumber[3]}}" name="caseArrestDate"
+                            id="caseArrestDate" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <label for="arrestTime" class="form-label">Arrest Time</label>
+                        <input type="time" value="{{formatted_time}}" class="form-control" name="caseArrestTime"
+                            id="caseArresttime" required>
+                    </div>
+                    <div class="col-3">
+                        <label for="arrestingOfficer" class="form-label">Arresting Officer</label>
+                        <input type="text" class="form-control" value="{{TheCaseNumber[4]}}" name="caseArrestingOfficer"
+                            id="caseArrestingOfficer" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" value="{{TheCaseNumber[6]}}" name="caseDescription"
+                        id="caseDescription" rows="3" placeholder="Brief description of the reason for arrest"
+                        required>{{ TheCaseNumber[6] }}</textarea>
+                </div>
+                <h6 class="mb-3">Case Location</h6>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="CLcity" class="form-label">Province/City</label>
+                        <select class="form-select" name="CLcity" id="CLcity" required>
+                            <option value="{{ArrestAdd[1]}}">{{ArrestAdd[1]}}</option>
+                            <option value="Banteay Meanchey">Banteay Meanchey</option>
+                            <option value="Battambang">Battambang</option>
+                            <option value="Kampong Cham">Kampong Cham</option>
+                            <option value="Kampong Chhnang">Kampong Chhnang</option>
+                            <option value="Kampong Speu">Kampong Speu</option>
+                            <option value="Kampong Thom">Kampong Thom</option>
+                            <option value="Kampot">Kampot</option>
+                            <option value="Kandal">Kandal</option>
+                            <option value="Kep">Kep</option>
+                            <option value="Koh Kong">Koh Kong</option>
+                            <option value="Kratie">Kratie</option>
+                            <option value="Mondul Kiri">Mondul Kiri</option>
+                            <option value="Oddar Meanchey">Oddar Meanchey</option>
+                            <option value="Pailin">Pailin</option>
+                            <option value="Phnom Penh">Phnom Penh</option>
+                            <option value="Preah Sihanouk">Preah Sihanouk</option>
+                            <option value="Preah Vihear">Preah Vihear</option>
+                            <option value="Prey Veng">Prey Veng</option>
+                            <option value="Pursat">Pursat</option>
+                            <option value="Ratanak Kiri">Ratanak Kiri</option>
+                            <option value="Siemreap">Siemreap</option>
+                            <option value="Stung Treng">Stung Treng</option>
+                            <option value="Svay Rieng">Svay Rieng</option>
+                            <option value="Takeo">Takeo</option>
+                            <option value="Tboung Khmum">Tboung Khmum</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="CLdistrict" class="form-label">District/Khan</label>
+                        <input type="text" class="form-control" value="{{ArrestAdd[2]}}" name="CLdistrict"
+                            id="CLdistrict">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="CLcommune" class="form-label">Commune/Sangkat</label>
+                        <input type="text" class="form-control" value="{{ArrestAdd[3]}}" name="CLcommune"
+                            id="CLcommune">
+                    </div>
+                    <div class="col-6">
+                        <label for="CLvillage" class="form-label">Village</label>
+                        <input type="text" class="form-control" value="{{ArrestAdd[4]}}" name="CLvillage"
+                            id="CLvillage">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="CLstreetAdd" class="form-label">Street Address</label>
+                        <input type="text" class="form-control" value="{{ArrestAdd[5]}}" name="CLstreetAdd"
+                            id="CLstreetAdd">
+                    </div>
+                    <div class="col-6">
+                        <label for="CLcountry" class="form-label">Country</label>
+                        <select class="form-select" name="CLcountry" id="CLcountry" required>
+                            <option value="{{ArrestAdd[7]}}">{{ArrestAdd[7]}}</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Thailand">Thailand</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information Section -->
+            <!-- <div class="form-section">
+                <h3>Additional Information</h3>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="fileUploadPhoto" class="form-label">Upload 4x6 Photo</label>
+                        <input class="form-control" type="file" id="fileUploadPhoto">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="fileUploadID" class="form-label">Upload ID Card File</label>
+                        <input class="form-control" type="file" id="fileUploadID">
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn w-100 btn-primary">Submit Registration</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+<!-- <script>
+    function formatTime(time) {
+    // Split the time into hours, minutes, and seconds
+    let timeParts = time.split(":");
+    let hours = timeParts[0].padStart(2, "0");
+    let minutes = timeParts[1].padStart(2, "0");
+    let seconds = timeParts[2] || "00"; // If no seconds provided, default to '00'
+
+    // Return the formatted time in HH:mm:ss
+    return `${hours}:${minutes}:${seconds}`;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("object");
+
+        // Example value from backend or a variable
+        let arrestTime = document.getElementById("caseArresttime").value;
+        console.log(arrestTime);  // Example time (HH:mm)
+
+        // Update the input field value with the formatted time
+        document.getElementById("caseArresttime").value = formatTime(arrestTime);
+    });
+</script> -->
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}Charged Person{% endblock %}
+{% block content %}
+<div class="border" style="padding: 30px 20px 20px 20px;">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h2>Charged Person</h2>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="w-100">
+            <table class="table" border="1">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Card Number</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Description</th>
+                        <th>created_by</th>
+                        <th>Modified_by</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for charged_person in charged_persons %}
+                    <tr>
+                        <td>{{ charged_person[0] }}</td> <!-- Name -->
+                        <td>{{ charged_person[1] }}</td> <!-- charged_personname -->
+                        <td>{{ charged_person[2] }}</td> <!-- Role -->
+                        <td>{{ charged_person[3] }}</td> <!-- Status -->
+                        <td>{{ charged_person[12] or 'None' }}</td> <!-- Created At -->
+                        <td>{{ charged_person[15] }}</td> <!-- Updated At -->
+                        <td>{{ charged_person[16] or 'No description available' }}</td>
+                        <td>
+                            <a class="btn btn-success" href="#">Detail</a>
+                            <a class="btn btn-warning" href="{{ url_for('views.chargedperson_update', ChargedPersonId=charged_person[0]) }}">Update</a>
+                            <a class="btn btn-danger" href="#">Delete</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8">No users found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
